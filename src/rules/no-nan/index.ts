@@ -6,7 +6,7 @@ module.exports = {
         if (['Number', 'parseInt', 'parseFloat'].includes(calleeName)) {
           context.report({
             node,
-            message: `${calleeName} can return NaN. Use ${calleeName}Strict instead. This function is available in the eslint-plugin-no-nan package already installed in your code, just import it!`,
+            message: `${calleeName} can return NaN, use ${calleeName}Strict so an error will be caused if the returned value is NaN`,
             fix(fixer: any) {
               if (node.callee.name === 'Number') {
                 return fixer.replaceText(node.callee, node.callee.name.replace(node.callee.name, 'NumberStrict'));
@@ -30,31 +30,9 @@ module.exports = {
     type: 'problem',
     docs: {
       description:
-        'This ESLint plugin helps developers maintain a consistent vocabulary in their code. By defining canonical terms, developers can ensure that their codebase remains coherent and understandable.',
+        'This ESLint plugin helps developers avoid using functions that can return NaN by providing alternatives that break execution at these handling points instead of allowing NaN',
     },
     fixable: 'code',
-    schema: [
-      {
-        type: 'array',
-        items: {
-          type: 'object',
-          properties: {
-            message: {
-              type: 'string',
-            },
-            fixTo: {
-              type: 'string',
-            },
-            words: {
-              type: 'array',
-              items: {
-                type: 'string',
-              },
-            },
-          },
-          additionalProperties: false,
-        },
-      },
-    ],
+    schema: [],
   },
 };
