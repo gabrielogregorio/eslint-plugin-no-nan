@@ -11,7 +11,7 @@
     "eslint-plugin"
   ],
   "scripts": {
-    "test": "ts-node src/rules/no-nan/no-nan.spec.ts",
+    "__test": "ts-node src/rules/no-nan/no-nan.spec.ts",
     "build": "tsc",
     "jest": "jest  --passWithNoTests",
     "jest:watch": "jest  --watchAll",

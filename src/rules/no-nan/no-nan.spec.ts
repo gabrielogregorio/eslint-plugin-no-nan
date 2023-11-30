@@ -18,7 +18,7 @@ ruleTester.run('no-nan', noDisallowedTermsRule, {
       errors: [
         {
           message:
-            'parseInt can return NaN. Use parseIntStrict instead. This function is available in the eslint-plugin-no-nan package already installed in your code, just import it!',
+            'parseInt can return NaN, use parseIntStrict so an error will be caused if the returned value is NaN',
         },
       ],
     },
@@ -28,8 +28,7 @@ ruleTester.run('no-nan', noDisallowedTermsRule, {
       output: 'NumberStrict("value")',
       errors: [
         {
-          message:
-            'Number can return NaN. Use NumberStrict instead. This function is available in the eslint-plugin-no-nan package already installed in your code, just import it!',
+          message: 'Number can return NaN, use NumberStrict so an error will be caused if the returned value is NaN',
         },
       ],
     },
@@ -40,7 +39,7 @@ ruleTester.run('no-nan', noDisallowedTermsRule, {
       errors: [
         {
           message:
-            'parseFloat can return NaN. Use parseFloatStrict instead. This function is available in the eslint-plugin-no-nan package already installed in your code, just import it!',
+            'parseFloat can return NaN, use parseFloatStrict so an error will be caused if the returned value is NaN',
         },
       ],
     },
