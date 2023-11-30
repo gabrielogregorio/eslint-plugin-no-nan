@@ -1,5 +1,7 @@
-export * from './utils';
+const eslintRule = require('./rules/no-nan');
+import * as utils from './utils';
 
-module.exports = {
-  rules: { 'no-nan': require('./rules/no-nan/index') },
+export default {
+  rules: { 'no-nan': eslintRule },
+  ...utils,
 };
