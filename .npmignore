@@ -15,3 +15,5 @@ CODE-OF-CONDUCT.md
 .prettierignore
 .prettierrc
 *.spec.*
+dist
+example.js
